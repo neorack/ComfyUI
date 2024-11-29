@@ -43,8 +43,12 @@ def execute_prestartup_script():
             script_path = os.path.join(module_path, "prestartup_script.py")
             if os.path.exists(script_path):
                 time_before = time.perf_counter()
-                success = execute_script(script_path)
-                node_prestartup_times.append((time.perf_counter() - time_before, module_path, success))
+                try:
+                    success = execute_script(script_path)
+                    node_prestartup_times.append((time.perf_counter() - time_before, module_path, success))
+                except Exception as e:
+                    logging.error(f"Failed to import custom node from {module_path}: {str(e)}")
+                    node_prestartup_times.append((time.perf_counter() - time_before, module_path, False))
     if len(node_prestartup_times) > 0:
         print("\nPrestartup times for custom nodes:")
         for n in sorted(node_prestartup_times):
