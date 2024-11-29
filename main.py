@@ -5,6 +5,7 @@ import os
 import importlib.util
 import folder_paths
 import time
+import logging
 from comfy.cli_args import args
 from app.logger import setup_logger
 
