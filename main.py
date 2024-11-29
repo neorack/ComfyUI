@@ -28,8 +28,10 @@ def execute_prestartup_script():
         return
 
     node_paths = folder_paths.get_folder_paths("custom_nodes")
+    logging.info(f"Scanning custom node paths: {node_paths}")
     for custom_node_path in node_paths:
         possible_modules = os.listdir(custom_node_path)
+        logging.info(f"Found {len(possible_modules)} potential modules in {custom_node_path}")
         node_prestartup_times = []
 
         for possible_module in possible_modules:
