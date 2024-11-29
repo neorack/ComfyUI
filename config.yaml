@@ -1,0 +1,6 @@
+model_dir: "F:/source/Models"
+checkpoints_path: "F:/source/Models/checkpoints"
+clip_path: "F:/source/Models/clip"
+vae_path: "F:/source/Models/vae"
+loras_path: "F:/source/Models/loras"
+diffusion_models_path: "F:/source/Models/diffusion_models"
